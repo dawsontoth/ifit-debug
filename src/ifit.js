@@ -46,8 +46,8 @@ function onConnected(connection) {
 	connection.on('error', onError);
 	connection.on('close', onClose);
 	// TODO: We can control the treadmill, too.
-	// connection.sendUTF(JSON.stringify({ 'Actual Incline': 3 }));
-	// connection.sendUTF(JSON.stringify({ 'MPH': 6 }));
+	// connection.sendUTF(JSON.stringify({ 'Actual Incline': '3.0' }));
+	// connection.sendUTF(JSON.stringify({ 'MPH': '6' }));
 }
 
 function onMessage(message) {
@@ -55,8 +55,8 @@ function onMessage(message) {
 	if (data === '{}') {
 		return;
 	}
+	console.log('Message:', data);
 	let parsed = safeJSONParse(data);
-	console.log('Message:', parsed);
 	if (parsed.values) {
 		parsed = parsed.values;
 	}
