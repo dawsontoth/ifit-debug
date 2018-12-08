@@ -1,0 +1,14 @@
+{
+  "name": "ifit-debug",
+  "author": "Dawson Toth",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "ssh://github.com:dawsontoth/ifit-debug.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "death": "^1.1.0",
+    "websocket": "^1.0.28"
+  }
+}
