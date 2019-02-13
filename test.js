@@ -22,12 +22,12 @@ wsServer.on('connect', connection => {
 		() => {
 			if (Math.random() > 0.5) {
 				connection.sendUTF(JSON.stringify({
-					'Actual Incline': String(Math.round(Math.random() * 5))
+					'Incline': String(Math.round(Math.random() * 50) / 10)
 				}));
 			}
 			else {
 				connection.sendUTF(JSON.stringify({
-					'MPH': String(Math.round(Math.random() * 10))
+					'MPH': String(Math.round(Math.random() * 100) / 10)
 				}));
 			}
 		},
@@ -35,7 +35,7 @@ wsServer.on('connect', connection => {
 	);
 
 	connection.sendUTF(JSON.stringify({
-		'Actual Incline': '3.0',
+		'Incline': '3.0',
 		'MPH': '6'
 	}));
 
