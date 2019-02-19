@@ -51,12 +51,15 @@ function onConnected(connection) {
 }
 
 function onMessage(message) {
-	let data = message.utf8Data || message.data;
-	if (data === '{}') {
+	let data = message ? message.utf8Data || message.data : null;
+	if (!data || data === '{}') {
 		return;
 	}
 	console.log('Message:', data);
 	let parsed = safeJSONParse(data);
+	if (!parsed) {
+		return;
+	}
 	if (parsed.values) {
 		parsed = parsed.values;
 	}
